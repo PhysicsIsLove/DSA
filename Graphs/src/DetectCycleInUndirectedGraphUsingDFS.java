@@ -28,9 +28,9 @@ public class DetectCycleInUndirectedGraphUsingDFS {
         boolean[] visitedArr = new boolean[numNodes];
 
         for(int i=0; i<numNodes; i++){
-            if(visitedArr[i] == false){
+            if(!visitedArr[i]){
                 visitedArr[i] = true;
-                if(dfs(i, -1, adjList, visitedArr) == true){
+                if(dfs(i, -1, adjList, visitedArr)){
                     return true;
                 }
             }
@@ -40,7 +40,7 @@ public class DetectCycleInUndirectedGraphUsingDFS {
 
     public static boolean dfs(int node, int parentNode, List<List<Integer>> adjList, boolean[] visitedArr){
         for(Integer adjacentNode : adjList.get(node)){
-            if(visitedArr[adjacentNode] == true){
+            if(visitedArr[adjacentNode]){
                 if(adjacentNode != parentNode){
                     return true;
                 }
