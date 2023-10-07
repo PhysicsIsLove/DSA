@@ -1,12 +1,12 @@
 public class ReplaceOsWithXs {
     public static void main(String[] args) {
         String[][] graph = {
-                {"X", "X", "X", "O"},
-                {"X", "O", "X", "O"},
-                {"X", "X", "O", "X"},
                 {"X", "O", "X", "O"},
                 {"X", "O", "X", "O"},
-                {"X", "X", "O", "O"}
+                {"X", "X", "X", "X"},
+                {"X", "O", "X", "O"},
+                {"X", "O", "X", "O"},
+                {"X", "O", "O", "O"}
 
         };
         boolean[][] visitedMatrix = new boolean[graph.length][graph[0].length];
@@ -47,10 +47,10 @@ public class ReplaceOsWithXs {
     }
 
     public static boolean checkIfApplicable(String[][] graph, int rows, int cols, int row, int col, boolean[][] visitedMatrix){
-        visitedMatrix[row][col] = true;
         if(row == 0 || row == rows-1 || col == 0 || col == cols-1){
             return false;
         }
+        visitedMatrix[row][col] = true;
         int[][] directions = {
                 {-1, 0},
                 {1, 0},
