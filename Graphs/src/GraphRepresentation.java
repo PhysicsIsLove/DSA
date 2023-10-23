@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class GraphRepresentation {
@@ -59,5 +60,36 @@ public class GraphRepresentation {
             }
             System.out.println();
         }
+    }
+
+    public static List<List<List<Integer>>> makeAdjacencyListForWeightedGraph(int[][] weightedGraph, int numNodes){
+        List<List<List<Integer>>> adjList = new ArrayList<>();
+        for(int i=0; i< numNodes; i++){
+            adjList.add(new ArrayList<>());
+        }
+        for(int[] edge : weightedGraph){
+            int node1 = edge[0];
+            int node2 = edge[1];
+            int weight = edge[2];
+
+            adjList.get(node1).add(Arrays.asList(node2, weight));
+            adjList.get(node2).add(Arrays.asList(node1, weight));
+        }
+        return adjList;
+    }
+
+    public static List<List<List<Integer>>> makeAdjacencyListForWeightedDirectedGraph(int[][] weightedGraph, int numNodes){
+        List<List<List<Integer>>> adjList = new ArrayList<>();
+        for(int i=0; i< numNodes; i++){
+            adjList.add(new ArrayList<>());
+        }
+        for(int[] edge : weightedGraph){
+            int node1 = edge[0];
+            int node2 = edge[1];
+            int weight = edge[2];
+
+            adjList.get(node1).add(Arrays.asList(node2, weight));
+        }
+        return adjList;
     }
 }

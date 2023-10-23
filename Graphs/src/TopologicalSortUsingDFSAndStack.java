@@ -4,8 +4,9 @@ import java.util.Stack;
 
 /**
  * Only applicable for a Directed Acyclcic graph
+ * Done using the concept of stack
  */
-public class TopologicalSort {
+public class TopologicalSortUsingDFSAndStack {
     public static void main(String[] args) {
 
         Stack<Integer> stack = new Stack<>();
