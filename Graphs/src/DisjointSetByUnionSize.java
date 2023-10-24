@@ -17,7 +17,7 @@ public class DisjointSetByUnionSize {
         int[] sizes = new int[numNodes];
         Arrays.fill(sizes, 1);
         for(int[] edge : graph){
-            unionByRank(edge[0], edge[1], sizes, parents);
+            unionBySize(edge[0], edge[1], sizes, parents);
         }
         System.out.println("Parents ");
         Arrays.stream(parents).forEach(item -> System.out.print(" "+ item));
@@ -26,7 +26,7 @@ public class DisjointSetByUnionSize {
         Arrays.stream(sizes).forEach(item -> System.out.print(" "+ item));
     }
 
-    public static void unionByRank(int node1, int node2, int[] sizes, int[] parents){
+    public static void unionBySize(int node1, int node2, int[] sizes, int[] parents){
         int parent1 = getParent(node1, parents);
         int parent2 = getParent(node2, parents);
         if(parent1 == parent2){
